@@ -19,8 +19,8 @@ const getUserInputMachine = Machine(
             actions: "handleDone"
           },
           onError: {
-            target: "failure",
-            actions: "handleFailure"
+            target: "asking",
+            actions: 'handleError'
           }
         }
       },
@@ -37,18 +37,14 @@ const getUserInputMachine = Machine(
   },
   {
     actions: {
-      // TODO: how to add more logic here e.g.
-      // handleFailure: () => { console.log('...'); send('RETRY'); }
       handleDone: assign({ userInput: (context, event) => event.data }),
+      handleError: () => console.log('something went wrong...'),
       printSeparator: () => console.log("\n-------\n"),
       printUserInput: context => {
         const { userInput } = context;
         const parsedUserInput = userInput.split(",").map(l => l.trim());
         console.log(parsedUserInput.map(i => `- ${i}`).join("\n"));
       },
-      // TODO: how to add more logic here e.g.
-      // handleFailure: () => { console.log('...'); send('RETRY'); }
-      handleFailure: send("RETRY")
     },
     services: {
       askForUserInputService: (context, event) => {
