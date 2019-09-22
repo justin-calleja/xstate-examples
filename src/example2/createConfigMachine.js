@@ -11,15 +11,15 @@ function createConfigSync(config, configFilePath = "./config.json") {
 }
 
 const defaultConfig = {
-    version: '0.0.1',
-}
+  version: "0.0.1"
+};
 
-module.exports = Machine(
+const createConfigMachine = Machine(
   {
     id: "createConfig",
     initial: "create",
     context: {
-      defaultConfig,
+      defaultConfig
     },
     states: {
       create: {
@@ -33,7 +33,13 @@ module.exports = Machine(
   },
   {
     actions: {
-      handleCreateConfig: () => createConfigSync(defaultConfig),
+      handleCreateConfig: () => createConfigSync(defaultConfig)
     }
   }
 );
+
+module.exports = {
+  createConfigMachine,
+  createConfigSync,
+  defaultConfig
+};

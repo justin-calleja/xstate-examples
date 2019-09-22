@@ -1,6 +1,9 @@
 const { Machine, assign } = require("xstate");
 const { readJsonSync } = require("fs-extra");
 
+const FILE_NOT_FOUND = "FileNotFound";
+const jSON_PARSE_ERROR = "JSONParseError";
+
 function isProbablyJSONParseError(err) {
   // Examples:
   // 'Unexpected end of JSON input' - for an empty file
@@ -8,19 +11,31 @@ function isProbablyJSONParseError(err) {
   return err.message.includes("Unexpected") && err.message.includes("JSON");
 }
 
-function readConfig(configFilePath = "./config.json") {
+function readConfigSync(configFilePath = "./config.json") {
   try {
     return readJsonSync(configFilePath);
   } catch (err) {
     if (err.code === "ENOENT") {
-      return "FileNotFound"; // would like to maybe throw Error here and have it go in parent's `onError`
+      return FILE_NOT_FOUND;
     } else if (isProbablyJSONParseError(err)) {
-      return "JSONParseError"; // would like to maybe throw Error here and have it go in parent's `onError`
+      return jSON_PARSE_ERROR;
     }
   }
 }
 
-module.exports = Machine(
+const okTransitionCreator = target => ({
+  target: "ok",
+  actions: [
+    assign({
+      config: (context, event) => event.data.config
+    })
+  ],
+  cond: (context, event) => {
+    return event.data.config instanceof Object;
+  }
+});
+
+const readConfigMachine = Machine(
   {
     id: "readConfig",
     initial: "read",
@@ -32,28 +47,33 @@ module.exports = Machine(
         entry: "handleReadConfig",
         on: {
           "": [
-            { target: "success", cond: "ok" },
             { target: "noFile", cond: "noFile" },
-            { target: "parseError", cond: "parseError" }
+            { target: "parseError", cond: "parseError" },
+            { target: "unexpectedContent", cond: "isNotObject" },
+            // { target: "success" },
+            { target: "success", cond: "isObject" }
           ]
         }
       },
       success: {
-        // entry: "handleSuccess",
         type: "final",
         data: {
           config: context => context.result
         }
       },
       noFile: {
-        // entry: "handleNoFile",
         type: "final",
         data: {
           error: context => context.result
         }
       },
       parseError: {
-        // entry: "handleParseError",
+        type: "final",
+        data: {
+          error: context => context.result
+        }
+      },
+      unexpectedContent: {
         type: "final",
         data: {
           error: context => context.result
@@ -64,22 +84,31 @@ module.exports = Machine(
   {
     actions: {
       handleReadConfig: assign({
-        result: () => readConfig()
+        result: () => readConfigSync()
       })
-      //   handleSuccess: () => console.log("in readConfigMachine's handleSuccess"),
-      //   handleNoFile: (context) => console.log("in readConfigMachine's handleNoFile:", context),
-      //   handleParseError: () => console.log("in readConfigMachine's handleParseError"),
     },
     guards: {
-      ok: (context, event) => {
+      isObject: (context, event) => {
         return context.result instanceof Object;
       },
-      noFile: context => {
-        return context.result === "FileNotFound";
+      isNotObject: (context, event) => {
+        return !(context.result instanceof Object);
+      },
+      noFile: (context, event) => {
+        return context.result === FILE_NOT_FOUND;
       },
       parseError: context => {
-        return context.result === "JSONParseError";
+        return context.result === jSON_PARSE_ERROR;
       }
     }
   }
 );
+
+module.exports = {
+  readConfigMachine,
+  readConfigSync,
+  FILE_NOT_FOUND,
+  jSON_PARSE_ERROR,
+  isProbablyJSONParseError,
+  okTransitionCreator
+};

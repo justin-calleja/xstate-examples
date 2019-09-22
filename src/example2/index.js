@@ -1,6 +1,6 @@
 const { Machine, assign, interpret } = require("xstate");
-const readConfigMachine = require("./readConfigMachine");
-const createConfigMachine = require("./createConfigMachine");
+const { readConfigMachine } = require("./readConfigMachine");
+const { createConfigMachine } = require("./createConfigMachine");
 
 const mainMachine = Machine(
   {
@@ -18,8 +18,13 @@ const mainMachine = Machine(
             invoke: {
               src: readConfigMachine,
               onDone: [
-                { target: "ok", cond: "ok" },
-                { target: "noFile", cond: "noFile" },
+                { target: "ok" },
+                // { target: "ok", cond: "ok" },
+                // { target: "noFile", cond: "noFile" },
+                // { target: "parseError", cond: "parseError" }
+              ],
+              onError: [
+                { target: "noFile", cond: "noFile", actions: "noFileAction" },
                 { target: "parseError", cond: "parseError" }
               ]
             }
@@ -66,9 +71,12 @@ const mainMachine = Machine(
   },
   {
     actions: {
-      handleOk: assign({
-        config: (context, event) => event.data.config
-      }),
+      handleOk: (context, event) => {
+        console.log("in handleOk... with context:", context, event)
+      },
+      //   handleOk: assign({
+      //     config: (context, event) => event.data.config
+      //   }),
       handleNoFile: context => {
         console.log("in handleNoFile with context:", context);
       },
@@ -78,7 +86,10 @@ const mainMachine = Machine(
       handlePart2: (context, event) => {
         console.log("in handlePart2 with context:", context, "event:", event);
       },
-      logConfigFileCreated: () => console.log("config file created")
+      logConfigFileCreated: () => console.log("config file created"),
+      noFileAction: (context, event) => {
+        console.log("in noFileAction with context:", context, "event:", event);
+      }
     },
     guards: {
       ok: (context, event) => {
