@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ScappleDocument Version="1.1" ID="EB8AFF72-0EDD-4228-B642-DBBB6BA8F4DA">
+    <Notes>
+        <Note ID="7" FontSize="12.0" Position="146.0,264.0" Width="67.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>readConfig</String>
+            <ConnectedNoteIDs>8, 20</ConnectedNoteIDs>
+            <PointsToNoteIDs>8</PointsToNoteIDs>
+        </Note>
+        <Note ID="8" FontSize="12.0" Position="159.0,147.0" Width="41.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>noFile</String>
+            <ConnectedNoteIDs>7, 9</ConnectedNoteIDs>
+            <PointsToNoteIDs>9</PointsToNoteIDs>
+        </Note>
+        <Note ID="9" FontSize="12.0" Position="391.0,147.0" Width="77.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>createConfig</String>
+            <ConnectedNoteIDs>8, 21</ConnectedNoteIDs>
+        </Note>
+        <Note ID="11" FontSize="12.0" Position="569.0,146.0" Width="86.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>configMachine</String>
+        </Note>
+        <Note ID="13" FontSize="12.0" Position="405.0,263.0" Width="54.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>standby </String>
+            <ConnectedNoteIDs>14, 17, 20-21</ConnectedNoteIDs>
+            <PointsToNoteIDs>14, 17</PointsToNoteIDs>
+        </Note>
+        <Note ID="14" FontSize="12.0" Position="521.0,257.0" Width="137.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>updateConfig
+(on disk and in memory)</String>
+            <ConnectedNoteIDs>10, 13</ConnectedNoteIDs>
+            <PointsToNoteIDs>13</PointsToNoteIDs>
+        </Note>
+        <Note ID="17" FontSize="12.0" Position="397.0,332.0" Width="69.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>sendConfig</String>
+            <ConnectedNoteIDs>13</ConnectedNoteIDs>
+            <PointsToNoteIDs>13</PointsToNoteIDs>
+        </Note>
+        <Note ID="20" FontSize="12.0" Position="237.0,264.0" Width="130.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>CONFIG_INITIALIZED</String>
+            <ConnectedNoteIDs>7, 13</ConnectedNoteIDs>
+            <PointsToNoteIDs>13</PointsToNoteIDs>
+        </Note>
+        <Note ID="21" FontSize="12.0" Position="366.0,196.0" Width="130.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>CONFIG_INITIALIZED</String>
+            <ConnectedNoteIDs>9, 13</ConnectedNoteIDs>
+            <PointsToNoteIDs>13</PointsToNoteIDs>
+        </Note>
+        <Note ID="23" FontSize="12.0" Position="137.0,596.0" Width="51.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>standby</String>
+            <ConnectedNoteIDs>30</ConnectedNoteIDs>
+            <PointsToNoteIDs>24</PointsToNoteIDs>
+        </Note>
+        <Note ID="26" FontSize="12.0" Position="570.0,477.0" Width="80.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>mainMachine</String>
+        </Note>
+        <Note ID="30" FontSize="12.0" Position="228.0,596.0" Width="130.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>CONFIG_INITIALIZED</String>
+            <ConnectedNoteIDs>23</ConnectedNoteIDs>
+            <PointsToNoteIDs>27</PointsToNoteIDs>
+        </Note>
+        <Note ID="35" FontSize="12.0" Position="290.0,70.0" Width="224.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>send config on CONFIG_INITIALIZED</String>
+            <ConnectedNoteIDs>10</ConnectedNoteIDs>
+        </Note>
+        <Note ID="37" FontSize="12.0" Position="1261.0,268.0" Width="51.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>standby</String>
+            <ConnectedNoteIDs>39, 42</ConnectedNoteIDs>
+        </Note>
+        <Note ID="38" FontSize="12.0" Position="1663.0,151.0" Width="127.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>signalHandlerMachine</String>
+        </Note>
+        <Note ID="39" FontSize="12.0" Position="1354.0,218.0" Width="49.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>SIGINT</String>
+            <ConnectedNoteIDs>37, 42</ConnectedNoteIDs>
+            <PointsToNoteIDs>42</PointsToNoteIDs>
+        </Note>
+        <Note ID="42" FontSize="12.0" Position="1457.0,267.0" Width="46.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>prompt</String>
+            <ConnectedNoteIDs>37, 39, 50-52</ConnectedNoteIDs>
+            <PointsToNoteIDs>37</PointsToNoteIDs>
+        </Note>
+        <Note ID="44" FontSize="12.0" Position="802.0,266.0" Width="51.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <String>standby</String>
+            <ConnectedNoteIDs>46</ConnectedNoteIDs>
+        </Note>
+        <Note ID="45" FontSize="12.0" Position="1068.0,149.0" Width="87.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+                <Border Weight="1">0.561855 0.71062 0.779401</Border>
+                <Fill>0.702319 0.888276 0.974252</Fill>
+            </Appearance>
+            <String>loggerMachine</String>
+        </Note>
+        <Note ID="46" FontSize="12.0" Position="955.0,266.0" Width="34.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>LOG</String>
+            <ConnectedNoteIDs>44</ConnectedNoteIDs>
+        </Note>
+        <Note ID="50" FontSize="12.0" Position="1575.0,239.0" Width="91.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>VERBOSE_ON</String>
+            <ConnectedNoteIDs>42</ConnectedNoteIDs>
+        </Note>
+        <Note ID="51" FontSize="12.0" Position="1575.0,267.0" Width="97.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>VERBOSE_OFF</String>
+            <ConnectedNoteIDs>42</ConnectedNoteIDs>
+        </Note>
+        <Note ID="52" FontSize="12.0" Position="1575.0,295.0" Width="37.0">
+            <Appearance>
+                <Alignment>Left</Alignment>
+            </Appearance>
+            <String>QUIT</String>
+            <ConnectedNoteIDs>42</ConnectedNoteIDs>
+        </Note>
+    </Notes>
+    <BackgroundShapes>
+        <Shape ID="10" Sticky="No" Position="119.0,131.0" Width="562.0" Height="250.0">
+            <Appearance>
+                <Border Weight="1"></Border>
+            </Appearance>
+            <ConnectedNoteIDs>14, 35</ConnectedNoteIDs>
+        </Shape>
+        <Shape ID="22" Sticky="No" Position="98.0,463.0" Width="584.0" Height="250.0">
+            <Appearance>
+                <Border Weight="1"></Border>
+            </Appearance>
+        </Shape>
+        <Shape ID="36" Sticky="No" Position="1224.0,135.0" Width="584.0" Height="250.0">
+            <Appearance>
+                <Border Weight="1"></Border>
+            </Appearance>
+        </Shape>
+        <Shape ID="43" Sticky="No" Position="765.0,133.0" Width="415.0" Height="250.0">
+            <Appearance>
+                <Border Weight="1"></Border>
+            </Appearance>
+        </Shape>
+    </BackgroundShapes>
+    <Stacks>
+        <Stack>50-52</Stack>
+    </Stacks>
+    <AutoFit>7-9, 11, 13-14, 17, 20-21, 23, 26, 30, 37-39, 42, 44-46, 50-52</AutoFit>
+    <NoteStyles>
+        <Style Name="Bubble (Blue)" ID="0368D86E-CF08-47BB-9DAF-FE2DA9196682" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.561855 0.71062 0.779401</BorderColor>
+            <FillColor>0.702319 0.888276 0.974252</FillColor>
+        </Style>
+        <Style Name="Bubble (Green)" ID="65CDE4A2-906F-414B-83E5-A3C7297CB525" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.572684 0.758969 0.558154</BorderColor>
+            <FillColor>0.715855 0.948712 0.697692</FillColor>
+        </Style>
+        <Style Name="Bubble (Pink)" ID="6A828D65-DD55-4E7C-96FC-D20CD8E61450" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.957566 0.766747 0.999616</FillColor>
+        </Style>
+        <Style Name="Bubble (Red)" ID="0BC0DA72-0720-4146-BDC6-82CE40C53DF1" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.794796 0.560965 0.58607</BorderColor>
+            <FillColor>0.993495 0.701207 0.732587</FillColor>
+        </Style>
+        <Style Name="Bubble (Yellow)" ID="FF6242D4-3AF2-48C5-A446-B73F3D58FBE3" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="No" AffectNoteBody="Yes" AffectFade="No">
+            <BorderThickness>1</BorderThickness>
+            <BorderColor>0.798177 0.714184 0.522055</BorderColor>
+            <FillColor>0.997722 0.89273 0.652569</FillColor>
+        </Style>
+        <Style Name="Red Text" ID="982A4F47-9254-4485-8B07-C8D07943A2FE" AffectFontStyle="No" AffectAlignment="No" AffectTextColor="Yes" AffectNoteBody="No" AffectFade="No">
+            <TextColor>0.985948 0.0 0.026951</TextColor>
+        </Style>
+        <Style Name="Title Text" ID="6953189C-04F7-4C48-850F-435FE11F5D01" AffectFontStyle="Yes" AffectAlignment="Yes" AffectTextColor="No" AffectNoteBody="No" AffectFade="No">
+            <FontSize>28.0</FontSize>
+            <IsBold>Yes</IsBold>
+        </Style>
+    </NoteStyles>
+    <UISettings>
+        <BackgroundColor>0.999767 0.98837 0.949907</BackgroundColor>
+        <DefaultFont>Helvetica</DefaultFont>
+    </UISettings>
+    <PrintSettings PaperSize="595.0,842.0" LeftMargin="72.0" RightMargin="72.0" TopMargin="90.0" BottomMargin="90.0" PaperType="iso-a4" Orientation="Portrait" HorizontalPagination="Clip" VerticalPagination="Auto" ScaleFactor="1.0" HorizontallyCentered="Yes" VerticallyCentered="Yes" Collates="Yes" PagesAcross="1" PagesDown="1"></PrintSettings>
+</ScappleDocument>
