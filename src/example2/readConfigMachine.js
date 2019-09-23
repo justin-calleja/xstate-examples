@@ -23,8 +23,8 @@ function readConfigSync(configFilePath = "./config.json") {
   }
 }
 
-const okTransitionCreator = target => ({
-  target: "ok",
+const okTransitionCreator = (target = "ok") => ({
+  target,
   actions: [
     assign({
       config: (context, event) => event.data.config
@@ -32,6 +32,13 @@ const okTransitionCreator = target => ({
   ],
   cond: (context, event) => {
     return event.data.config instanceof Object;
+  }
+});
+
+const noFileTransitionCreator = (target = "noFile") => ({
+  target,
+  cond: (context, event) => {
+    return event.data.error === FILE_NOT_FOUND;
   }
 });
 
@@ -110,5 +117,6 @@ module.exports = {
   FILE_NOT_FOUND,
   jSON_PARSE_ERROR,
   isProbablyJSONParseError,
-  okTransitionCreator
+  okTransitionCreator,
+  noFileTransitionCreator
 };
