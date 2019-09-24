@@ -99,11 +99,11 @@
             <ConnectedNoteIDs>23</ConnectedNoteIDs>
             <PointsToNoteIDs>27</PointsToNoteIDs>
         </Note>
-        <Note ID="35" FontSize="12.0" Position="290.0,70.0" Width="224.0">
+        <Note ID="35" FontSize="12.0" Position="263.0,70.0" Width="279.0">
             <Appearance>
                 <Alignment>Left</Alignment>
             </Appearance>
-            <String>send config on CONFIG_INITIALIZED</String>
+            <String>send config with CONFIG_INITIALIZED (to parent)</String>
             <ConnectedNoteIDs>10</ConnectedNoteIDs>
         </Note>
         <Note ID="37" FontSize="12.0" Position="1261.0,268.0" Width="51.0">
